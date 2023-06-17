@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import styles from '../style/App.css'
+import styles from '../style/reservas.css'
 import { collection, addDoc, getDocs, updateDoc, deleteDoc} from "firebase/firestore";
 import {db} from '../firebase/firebase'
 
+// diplay block en css para desplegar el navbar
 const App = () => {
   const [users, setUser] = useState([])
   const userCollectionRef = collection(db, 'reservas')
