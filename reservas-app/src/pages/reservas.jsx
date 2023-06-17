@@ -4,7 +4,7 @@ import { collection, addDoc, getDocs, updateDoc, deleteDoc} from "firebase/fires
 import {db} from '../firebase/firebase'
 
 // diplay block en css para desplegar el navbar
-const App = () => {
+const HomePage = () => {
   const [users, setUser] = useState([])
   const userCollectionRef = collection(db, 'reservas')
   const [name, setName] = useState("")
@@ -103,4 +103,4 @@ const App = () => {
   )   
 }
 
-export default App
+export default HomePage
