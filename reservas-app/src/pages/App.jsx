@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../style/App.css'
+import styles from '../style/App.css'
 import { collection, addDoc, getDocs, updateDoc, deleteDoc} from "firebase/firestore";
 import {db} from '../firebase/firebase'
 
@@ -56,7 +56,7 @@ const App = () => {
     <div>
        <div className="form col-6">
          <div className="mb-3">
-           <input type="text" placeholder='Nombre' className="form-control" onChange={(e) => {setName(e.target.value)}}/>
+           <input type="text" placeholder='Nombre' className={styles.form-control} onChange={(e) => {setName(e.target.value)}}/>
          </div>
          <div className="mb-3">
            <input type="email" placeholder='Correo' className="form-control" onChange={(e) => {setEmail(e.target.value)}}/>
@@ -68,26 +68,25 @@ const App = () => {
            <textarea placeholder='Comentarios' className="form-control" rows={3} defaultValue={""} onChange={(e) => {setComments(e.target.value)}}/>
          </div>
          <div className="d-grid gap-2 col-4 mx-auto">
-           <button id="btnCrear" className="btn btn-success" onclick={createUser()}>Enviar</button>
+           <button id="btnCrear" className="btn btn-success" onClick={createUser()}>Enviar</button>
          </div>
        </div>
-    </div>
+    
 
-    {users.map((item)=>{
-      return(
-        <div key={item.id}>
-          <h5>Nombre: <p>{item.nombre}</p></h5>
-          <h5>Telefono: <p>{item.telefono}</p></h5>
-          <h5>Correo: <p>{item.correo}</p></h5>
-          <h5>Comentarios: <p>{item.comentarios}</p></h5>
+     {users.map((item)=>{
+       return(
+         <div key={item.id}>
+           <h5>Nombre: <p>{item.nombre}</p></h5>
+           <h5>Telefono: <p>{item.telefono}</p></h5>
+           <h5>Correo: <p>{item.correo}</p></h5>
+           <h5>Comentarios: <p>{item.comentarios}</p></h5>
 
-         <button className="btn btn-danger" onClick={()=> borrarUsuario(item.id)}>Borrar</button>
-         <button className="btn btn-warning" onClick={()=> formUpdateOpen(item)}>Editar</button>
-        </div>
-      )
-    })}
-  )
-  
+          <button className="btn btn-danger" onClick={()=> borrarUsuario(item.id)}>Borrar</button>
+          <button className="btn btn-warning" onClick={()=> formUpdateOpen(item)}>Editar</button>
+         </div>
+       )
+     })}
+
     {
       formUpdate &&
       <>
@@ -99,7 +98,8 @@ const App = () => {
       <button className="btn btn-info" onClick={()=> onUpdate(item.id)}>Guardar</button>
       </>
     }
-
+    </div>
+  )   
 }
 
 export default App
