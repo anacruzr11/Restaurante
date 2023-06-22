@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 
-import HomePage from "../src/pages/home"
-import ReservasPage from "../src/pages/reservas"
+import HomePage from "../pages/home"
+import ReservasPage from "../pages/reservas"
 
 const AppRouter = () => {
     return  (
